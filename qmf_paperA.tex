@@ -1,0 +1,233 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage{float}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+\title{\textbf{A Quantum Memory Field: Inflationary Local Non-Gaussianity and Non-Markovian Coherence Recovery}\\
+\large A falsification-oriented effective-field program across cosmology and open quantum dynamics}
+\author{Stephen Atalebe\\
+Masaryk University, Brno, Czech Republic\\
+\texttt{478944@muni.cz}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A minimal effective-field extension is considered in which a real scalar field $\hat{M}$ encodes vacuum phase-coherence structure and couples derivatively to the inflaton. In the inflationary regime this interaction predicts a local-form bispectrum with amplitude scaling as $f_{NL}^{\mathrm{loc}}\propto g(H/m_M)^2$, together with a shape function enhanced in squeezed and folded configurations. In the quantum open-systems regime the same field, treated as a structured environment with sub-Ohmic spectral support, yields a two-timescale decoherence law containing a recoverable Gaussian coherence term that is absent in Markovian models. Both sectors are formulated with binary falsification conditions. Semi-numerical inflationary scans demonstrate that a broad region of $(g,m_M/H)$ is consistent with Planck 2018 bounds on local non-Gaussianity, avoiding fine-tuning. Spin-boson simulations further show that the Gaussian recovery term appears only when the environment carries the structured memory kernel, and that an echo intervention selectively enhances the recoverable component. The resulting program is designed to be empirically decidable: null results in either sector reject the mechanism.
+\end{abstract}
+
+\section{Introduction}
+Standard inflationary and quantum open-system frameworks treat coherence largely as an emergent property: primordial phases are typically modeled as random under a Bunch--Davies vacuum, and decoherence is often approximated as Markovian under weak-coupling, short-memory environments. However, two recurring empirical and theoretical pressures motivate a conservative extension.
+
+First, inflationary physics remains constrained primarily through higher-order statistics of curvature perturbations. In particular, local-type non-Gaussianity provides a direct probe of multi-field effects and nontrivial interactions beyond the simplest single-field slow-roll picture \cite{Maldacena2003,Komatsu2010,PlanckNG2018}. Second, open quantum systems coupled to structured baths frequently exhibit non-exponential coherence decay and partial revivals inconsistent with memoryless approximations, motivating explicit non-Markovian frameworks and operational measures \cite{Breuer2009,Rivas2014,Bylicka2014}.
+
+This work introduces a minimal real scalar field $\hat{M}$ (the \emph{quantum memory field}) as an effective description of phase-coherence structure in the vacuum sector. The proposal is intentionally conservative: it is framed as an effective field theory (EFT) mechanism operative in regimes of strong curvature or engineered environments, and it is evaluated through a falsification-first program.
+
+Paper A focuses on two components only:
+\begin{itemize}
+  \item \textbf{Inflationary sector:} the derivative coupling $g\hat{M}(\partial\phi)^2$ yields a local-form bispectrum scaling $f_{NL}^{\mathrm{loc}}\sim g(H/m_M)^2$ with shape support in squeezed and folded configurations, tested via semi-numerical scans and shape sanity checks.
+  \item \textbf{Quantum sector:} coupling to $\hat{M}$ as a structured bath yields a two-timescale decoherence law containing a Gaussian recovery term, tested by spin-boson simulations and an echo intervention.
+\end{itemize}
+
+A companion paper (Paper B) will treat cross-domain synthesis and any broader interpretive extensions; these are not required to evaluate the mechanism presented here.
+
+\section{Theoretical Framework}
+
+\subsection{Field content and minimality}
+A real scalar $\hat{M}:\mathbb{R}^{1,3}\rightarrow\mathbb{R}$ is introduced as the minimal Lorentz-invariant EFT extension capable of encoding vacuum correlation structure without introducing anisotropic stress at the level of a vector or higher-spin field. The hypothesis is not metaphysical: $\hat{M}$ is treated as a trackable degree of freedom whose correlators can act as a memory-bearing environment.
+
+\subsection{Lagrangian density}
+The effective Lagrangian is
+\begin{equation}
+\mathcal{L}=\mathcal{L}_{EH}+\mathcal{L}_{\phi}+\mathcal{L}_{M}+\mathcal{L}_{\mathrm{int}},
+\end{equation}
+with
+\begin{equation}
+\mathcal{L}_{M}=\frac{1}{2}\partial_\mu \hat{M}\,\partial^\mu \hat{M}-\frac{1}{2}m_M^2\hat{M}^2-\frac{\lambda_M}{4}\hat{M}^4,
+\end{equation}
+and the inflation-relevant interaction
+\begin{equation}
+\mathcal{L}_{\mathrm{int}}=g\,\hat{M}\,\partial_\mu\phi\,\partial^\mu\phi.
+\label{eq:Lint}
+\end{equation}
+The coupling $g$ is treated as dimensionless in the chosen EFT normalization (or equivalently absorbed into field rescalings), and the regime of interest is weak coupling with $\hat{M}$ light compared to $H$.
+
+The equation of motion for $\hat{M}$ is
+\begin{equation}
+\square \hat{M}+m_M^2\hat{M}+\lambda_M \hat{M}^3 = g\,\partial_\mu\phi\,\partial^\mu\phi.
+\end{equation}
+
+\section{Inflationary Signatures: Local Bispectrum Scaling}
+
+\subsection{Bispectrum scaling}
+In slow-roll inflation with background $\phi(t)$ and approximately constant Hubble parameter $H$, the leading interaction relevant for bispectrum generation arises from Eq.~\eqref{eq:Lint}. Treating $\hat{M}$ as a light spectator field ($m_M\ll H$) and using the in-in formalism, the curvature bispectrum takes the schematic form
+\begin{equation}
+B_\zeta(k_1,k_2,k_3)\simeq \frac{gH^2}{m_M^2}\,S(k_1,k_2,k_3),
+\end{equation}
+where $S$ is a dimensionless shape function. The corresponding local-type amplitude scales as
+\begin{equation}
+f_{NL}^{\mathrm{loc}}\simeq C\,\frac{gH^2}{m_M^2}=C\,\frac{g}{(m_M/H)^2},
+\label{eq:fNLscaling}
+\end{equation}
+with $C=\mathcal{O}(1)$ encoding shape and slow-roll factors.
+
+Planck 2018 constraints on primordial non-Gaussianity provide an immediate observational bound, with combined temperature and polarization yielding
+\begin{equation}
+f_{NL}^{\mathrm{loc}} = -0.9 \pm 5.1 \quad (68\%~\mathrm{CL,\ statistical})
+\end{equation}
+\cite{PlanckNG2018}.
+
+\subsection{Shape sanity checks (semi-numerical)}
+To avoid leaving Eq.~\eqref{eq:fNLscaling} purely symbolic, numerical shape scans were computed over representative triangle configurations:
+\begin{itemize}
+  \item \textbf{squeezed:} $(k_1,k_2,k_3)=(\epsilon,1,1)$ with $\epsilon\ll 1$,
+  \item \textbf{folded:} $(1,1,2)$ and nearby configurations,
+  \item \textbf{equilateral:} $(1,1,1)$.
+\end{itemize}
+The resulting shape plots are included as Fig.~\ref{fig:shapes}. The objective is not a full Boltzmann pipeline modification but a minimal numerical confirmation that the implemented $S(k_1,k_2,k_3)$ matches the stated support structure.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.32\textwidth]{outputs/shape_squeezed.png}
+\includegraphics[width=0.32\textwidth]{outputs/shape_folded.png}
+\includegraphics[width=0.32\textwidth]{outputs/shape_equilateral.png}
+\caption{Semi-numerical shape sanity checks for the inflationary bispectrum template used in this work. The implementation exhibits enhancement in squeezed configurations and support in folded configurations relative to equilateral. These plots are intended as a minimal validation that the adopted template is not purely symbolic.}
+\label{fig:shapes}
+\end{figure}
+
+\subsection{Parameter viability scan and Planck-allowed region}
+A grid scan was performed over
+\begin{equation}
+g\in[10^{-4},1],\qquad m_M/H\in[10^{-3},0.3],
+\end{equation}
+computing $f_{NL}^{\mathrm{loc}}(g,m_M/H)$ using Eq.~\eqref{eq:fNLscaling} with $C=\mathcal{O}(1)$ fixed for the template. Using the Planck 2018 $2\sigma$ band for the local amplitude, the scan yields a broad viable region: approximately $39\%$ of the scanned grid satisfies the Planck-allowed criterion under this model normalization. This indicates that the scaling does not require fine-tuning into a measure-zero corner of parameter space.
+
+Figure~\ref{fig:fNLgrid} shows the baseline $f_{NL}^{\mathrm{loc}}$ map, and Fig.~\ref{fig:fNLdetect} overlays the Planck-allowed contour along with illustrative detectability thresholds for next-generation CMB surveys. The detectability lines are treated as order-of-magnitude guides rather than claims of an official forecast.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\textwidth]{outputs/fNL_grid.png}
+\caption{Grid evaluation of $f_{NL}^{\mathrm{loc}}(g,m_M/H)$ under the scaling $f_{NL}^{\mathrm{loc}}\propto g(H/m_M)^2$. The scan demonstrates that large regions of parameter space produce amplitudes within observationally constrained ranges.}
+\label{fig:fNLgrid}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\textwidth]{outputs/fNL_grid_detectability.png}
+\caption{Detectability-style summary of the inflationary parameter scan. The Planck 2018 $2\sigma$ allowed contour for $f_{NL}^{\mathrm{loc}}$ is overlaid on the $f_{NL}^{\mathrm{loc}}$ field (color). Dashed/dotted contours indicate illustrative thresholds for next-generation survey sensitivity. These are used to communicate parameter regimes of interest, not as a replacement for full experimental forecasting.}
+\label{fig:fNLdetect}
+\end{figure}
+
+\subsection{Cosmological falsification criterion}
+The inflationary mechanism is rejected if improved bispectrum analyses demonstrate that the true amplitude is consistent with zero with sufficiently small uncertainty such that Eq.~\eqref{eq:fNLscaling} has no viable parameter region under EFT priors. Operationally, for fixed normalization, the sector fails if:
+\begin{equation}
+f_{NL}^{\mathrm{loc}} \rightarrow 0 \quad \text{with} \quad \sigma(f_{NL}^{\mathrm{loc}})\ll 1
+\end{equation}
+in a regime where systematic contamination is controlled \cite{PlanckNG2018}.
+
+\section{Quantum Dynamics: Non-Markovian Coherence Recovery}
+
+\subsection{Open-system mapping and predicted decoherence law}
+When a two-level system couples to $\hat{M}$ as a structured environment, the influence functional yields a memory kernel $K(t-s)$ that depends on the bath correlator. For sub-Ohmic spectral weight and structured correlations, the predicted normalized coherence takes a two-timescale form:
+\begin{equation}
+D(t)=\frac{\abs{\rho_{01}(t)}}{\abs{\rho_{01}(0)}} = A e^{-t/\tau_1} + B e^{-(t/\tau_2)^2},\qquad A+B=1,
+\label{eq:Dt}
+\end{equation}
+where $B>0$ represents a recoverable Gaussian coherence term. Standard Markovian models predict $B=0$ and pure exponential decay. Non-Markovianity can be quantified operationally via information backflow measures \cite{Breuer2009,Rivas2014,Bylicka2014}.
+
+\subsection{Spin-boson simulations: three bath cases}
+To test whether Eq.~\eqref{eq:Dt} is generic or specific, a spin-boson simulation campaign was executed in three cases:
+\begin{enumerate}
+  \item \textbf{Ohmic bath:} baseline exponential behavior (no Gaussian recovery).
+  \item \textbf{Sub-Ohmic, unstructured:} stretched/non-exponential decay without selective recovery term.
+  \item \textbf{Sub-Ohmic with structured kernel:} emergence of a Gaussian recovery component ($B>0$).
+\end{enumerate}
+
+Figure~\ref{fig:decoherence} shows coherence curves, and Table-like fit outputs are saved (CSV) for reproducibility. The objective is minimal but decisive: demonstrate that $B>0$ is not a generic fitting artifact across all baths, but a structured-environment signature.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\textwidth]{outputs/decoherence_curves.png}
+\caption{Spin-boson decoherence simulations under three bath conditions. The structured sub-Ohmic case exhibits a distinct Gaussian recovery component consistent with Eq.~\eqref{eq:Dt}, while the Ohmic and unstructured cases do not.}
+\label{fig:decoherence}
+\end{figure}
+
+\subsection{Echo intervention: selective enhancement of recovery}
+An echo-style intervention (dynamical decoupling pulse) was applied at $t\sim \tau_2$ to test whether the recoverable component is selectively amplifiable. The model predicts that the Gaussian term responds more strongly to such an intervention than a purely Markovian exponential.
+
+Figure~\ref{fig:echo} shows the echo revival output.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\textwidth]{outputs/echo_revival.png}
+\caption{Echo intervention result. The structured-bath scenario shows selective enhancement of the recoverable coherence component, consistent with a memory-bearing kernel rather than a purely exponential decay model.}
+\label{fig:echo}
+\end{figure}
+
+\subsection{Quantum falsification criterion}
+The quantum mechanism fails if high-precision coherence data (in trapped-ion or photonic analog platforms) coupled to engineered sub-Ohmic baths yield
+\begin{equation}
+B=0
+\end{equation}
+across bath designs that are explicitly constructed to reveal memory effects and echo-selective recovery \cite{Breuer2009,Rivas2014,Barreiro2011}. In that case, the field does not function as the proposed coherence reservoir.
+
+\section{Prediction Status and Test Ledger}
+Table~\ref{tab:ledger} summarizes the prediction-test status using the present semi-numerical and simulation outputs. This table is intended to prevent ``blind submission'' by explicitly recording what has and has not been tested.
+
+\begin{table}[H]
+\centering
+\caption{Prediction status ledger for Paper A. ``Supported'' indicates the prediction is demonstrated as internally consistent and non-generic under the conducted simulations; ``Pending'' indicates the mechanism requires empirical measurement.}
+\label{tab:ledger}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Sector & Prediction & Test executed (this work) & Status \\ \midrule
+Inflation & $f_{NL}^{\mathrm{loc}}\propto g(H/m_M)^2$ & Grid scan + Planck-allowed region & Supported (viable region) \\
+Inflation & Shape support (squeezed/folded) & Semi-numerical shape scans & Supported (template sanity) \\
+Inflation & Planck consistency & Planck 2018 local bound applied \cite{PlanckNG2018} & Supported (broadly allowed) \\
+Quantum & Two-timescale decoherence Eq.~\eqref{eq:Dt} & Spin-boson simulations (3 bath cases) & Supported (non-generic) \\
+Quantum & Echo-selective recovery & Dynamical decoupling echo test & Supported (selective revival) \\
+Inflation & Detection by next-gen CMB & Not executed (forecast-level) & Pending \\
+Quantum & Hardware confirmation & Not executed (experimental) & Pending \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\section{Discussion}
+The inflationary scan demonstrates that the model does not require extreme fine-tuning to satisfy Planck 2018 local non-Gaussianity limits, while still permitting regimes where next-generation sensitivity could test the scaling more stringently. The quantum simulations show that the Gaussian recovery term is not a generic fit across all baths and that it is selectively echo-amplifiable, a crucial discriminator against purely phenomenological non-exponential models.
+
+Two limitations are explicit. First, the inflationary analysis is not a full end-to-end bispectrum pipeline; it is a falsification-oriented viability and template-consistency check intended to justify the parameterization and motivate targeted estimators. Second, the quantum sector remains simulation-based; experimental confirmation is deferred to platforms capable of engineered sub-Ohmic noise and echo control, such as trapped-ion open-system simulators \cite{Barreiro2011}.
+
+\section{Conclusion}
+A minimal scalar ``quantum memory field'' $\hat{M}$ was proposed and evaluated through a falsification-first program in two domains. In inflation, the derivative interaction predicts a local-form bispectrum with amplitude scaling $f_{NL}^{\mathrm{loc}}\sim g(H/m_M)^2$ and shape support concentrated in squeezed and folded configurations. Semi-numerical scans demonstrate a broad Planck-allowed region, indicating the scaling does not rely on fine-tuning. In open quantum dynamics, the field acts as a structured environment yielding a two-timescale decoherence law containing a recoverable Gaussian term; spin-boson simulations show this feature is specific to the structured-bath case and is selectively enhanced by an echo intervention.
+
+The mechanism is designed to be decisively testable: improved non-Gaussianity constraints that force $f_{NL}^{\mathrm{loc}}\to 0$ with small uncertainty would reject the inflationary sector, while coherence experiments in structured sub-Ohmic environments yielding $B=0$ would reject the quantum sector. Either null result falsifies the proposed memory mechanism.
+
+\bibliographystyle{unsrt}
+\bibliography{refs}
+
+\section*{Data Availability}
+
+All simulation codes and derived data products supporting the findings of this study are publicly available at:
+
+\begin{center}
+\url{https://github.com/Atalebe/QMF-Inflationary-Local-Non-Gaussianity.git}
+\end{center}
+
+The repository includes scripts used to generate the inflationary bispectrum parameter scans, spin--boson decoherence simulations, and associated figures and tables presented in this work. All figures in the paper can be reproduced from the provided code using standard Python scientific libraries. No proprietary data were used.
+
+\end{document}
+
