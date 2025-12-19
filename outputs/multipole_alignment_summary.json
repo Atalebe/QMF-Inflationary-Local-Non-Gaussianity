@@ -1,0 +1,14 @@
+{
+  "map": "/home/satal/ciou_tests/qmf_campaign/phase_coherence_lowell/data/commander_pr4_full.fits",
+  "field": 0,
+  "nside_out": 256,
+  "ell_range": [
+    2,
+    30
+  ],
+  "nsurr": 300,
+  "a23_real": 0.2823975017482061,
+  "p_a23": 0.8333333333333334,
+  "maxpair_real": 0.9986565248430163,
+  "p_maxpair": 0.56
+}

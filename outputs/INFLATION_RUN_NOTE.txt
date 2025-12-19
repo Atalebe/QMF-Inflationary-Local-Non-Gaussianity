@@ -1,0 +1,3 @@
+Inflation grid run
+Date: 2025-12-19T03:43:07.620182
+Outputs: fNL_grid.png, shape_squeezed.png, shape_folded.png, shape_equilateral.png
